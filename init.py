@@ -1,4 +1,1 @@
-print("123")
-
-
-print("test")
+print("welcome to knightstour")
