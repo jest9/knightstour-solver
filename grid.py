@@ -9,7 +9,7 @@ print("gridding up....")
 
 # grid size # 
 
-size = 8
+size = 5
 
 pygame.init()
 
@@ -40,13 +40,15 @@ def draw_pattern(surface, size):
 
     row_value = 1
     column_value = 1
+    colour_value = 255
 
     for i in range(size):
-            pygame.draw.rect(sample_surface, (0, 255, 0), pygame.Rect(grid_coordinates[column_value - 1][0], grid_coordinates[row_value - 1][0], cell_width, cell_height))
-            row_value = row_value + 1
-            column_value = column_value + 1
-            pygame.display.flip()
-            time.sleep(1)
+        pygame.draw.rect(sample_surface, (0, colour_value, 0), pygame.Rect(grid_coordinates[column_value - 1][0], grid_coordinates[row_value - 1][0], cell_width, cell_height))
+        row_value = row_value + 1
+        column_value = column_value + 1
+        colour_value = colour_value - 1
+        pygame.display.flip()
+        time.sleep(1)
 
 
 draw_grid(sample_surface, size)
