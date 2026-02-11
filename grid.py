@@ -32,7 +32,10 @@ def draw_grid(surface, size):
     
     print(grid_coordinates.__len__())
 
-    pygame.draw.rect(sample_surface, (255, 0, 0), pygame.Rect(grid_coordinates[1][1], grid_coordinates[1][1], cell_width, cell_height))
+    row_value = 8
+    column_value = 8
+
+    pygame.draw.rect(sample_surface, (255, 0, 0), pygame.Rect(grid_coordinates[column_value - 1][0], grid_coordinates[row_value - 1][0], cell_width, cell_height))
     
 
     
