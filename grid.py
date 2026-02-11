@@ -28,10 +28,15 @@ def draw_grid(surface, size):
         for j in range(size):
             rect = pygame.Rect(j * cell_width, i * cell_height, cell_width, cell_height)
             pygame.draw.rect(surface, (255, 255, 255), rect, 1) # draw grid lines
-            grid_coordinates.append((j * cell_width, i * cell_height))
+            grid_coordinates.append((j * cell_width, i * cell_height)) # store grid coordinates in list
     
-    for i in range(grid_coordinates.__len__()):
-        print(grid_coordinates[i])
+    print(grid_coordinates.__len__())
+
+    pygame.draw.rect(sample_surface, (255, 0, 0), pygame.Rect(grid_coordinates[1][1], grid_coordinates[1][1], cell_width, cell_height))
+    
+
+    
+    #pygame.Rect.move_ip(grid_coordinates[0], 10, 10)
 
 
 #color = (255,255,255)
@@ -42,7 +47,7 @@ x = 1
 while True:
     draw_grid(sample_surface, size)
     pygame.display.flip()
-    x = x - 1
+    x = x - 0
     if x == 0:
         break
     else:
