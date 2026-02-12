@@ -14,7 +14,10 @@ print("gridding up....")
 
 size = int(input("provide grid size: "))
 
-logic.grid_logic(size)
+
+# test for drawing value to visual grid.
+
+value2 = logic.grid_logic(size)
 
 # grid size # 
 
@@ -40,7 +43,7 @@ def draw_grid(surface, size):
     #print(grid_coordinates.__len__())
 
 
-def draw_pattern(surface, size):
+def draw_pattern(surface, size, value):
     width, height = surface.get_size()
     cell_width = width // size  # calculates width and height of each cell
     cell_height = height // size
@@ -49,15 +52,26 @@ def draw_pattern(surface, size):
     column_value = 1
     colour_value = 255
 
-    for i in range(size):
-        pygame.draw.rect(sample_surface, (0, colour_value, 0), pygame.Rect(grid_coordinates[column_value - 1][0], grid_coordinates[row_value - 1][0], cell_width, cell_height))
-        row_value = row_value + 2
-        column_value = column_value + 3
-        colour_value = colour_value - 1
+    
+    for x,y in value:
+        row_value = x
+        column_value = y
+        pygame.draw.rect(sample_surface, (0, colour_value, 0), pygame.Rect(grid_coordinates[column_value][0], grid_coordinates[row_value][0], cell_width, cell_height))
         pygame.display.flip()
         time.sleep(1)
 
+    
+
+
+    #for i in range(size):
+    #    pygame.draw.rect(sample_surface, (0, colour_value, 0), pygame.Rect(grid_coordinates[column_value - 1][0], grid_coordinates[row_value - 1][0], cell_width, cell_height))
+    #    row_value = row_value + 2
+    #    column_value = column_value + 3
+    #    colour_value = colour_value - 1
+    #    pygame.display.flip()
+    #    time.sleep(1)
+
 
 draw_grid(sample_surface, size)
-draw_pattern(sample_surface, size)
+draw_pattern(sample_surface, size, value2)
     
