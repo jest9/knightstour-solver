@@ -4,16 +4,23 @@ Docstring for grid draw with pygame
 
 import pygame
 import time
+import logic
+
 
 print("gridding up....")
 
-# grid size # 
 
-size = 5
+# solving logic #
+
+size = int(input("provide grid size: "))
+
+logic.grid_logic(size)
+
+# grid size # 
 
 pygame.init()
 
-sample_surface = pygame.display.set_mode((600,600))
+sample_surface = pygame.display.set_mode((800,800))
 
 # grid handling
 
@@ -44,8 +51,8 @@ def draw_pattern(surface, size):
 
     for i in range(size):
         pygame.draw.rect(sample_surface, (0, colour_value, 0), pygame.Rect(grid_coordinates[column_value - 1][0], grid_coordinates[row_value - 1][0], cell_width, cell_height))
-        row_value = row_value + 1
-        column_value = column_value + 1
+        row_value = row_value + 2
+        column_value = column_value + 3
         colour_value = colour_value - 1
         pygame.display.flip()
         time.sleep(1)

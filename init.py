@@ -6,5 +6,4 @@ import grid
 
 print("welcome to knightstour")
 
-
 grid()
