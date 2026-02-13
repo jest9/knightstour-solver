@@ -5,6 +5,7 @@ Docstring for grid draw with pygame
 import pygame
 import time
 import logic
+import random
 
 
 print("gridding up....")
@@ -50,15 +51,14 @@ def draw_pattern(surface, size, value):
 
     row_value = 1
     column_value = 1
-    colour_value = 255
-
     
     for x,y in value:
         row_value = x
         column_value = y
-        pygame.draw.rect(sample_surface, (0, colour_value, 0), pygame.Rect(grid_coordinates[column_value][0], grid_coordinates[row_value][0], cell_width, cell_height))
+        pygame.draw.rect(sample_surface, (random.randint(1,255), random.randint(1,255), random.randint(1,255)), pygame.Rect(grid_coordinates[column_value][0], grid_coordinates[row_value][0], cell_width, cell_height))
         pygame.display.flip()
-        time.sleep(1)
+        time.sleep(0.1)
+        
 
     
 
