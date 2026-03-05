@@ -28,7 +28,6 @@ def move_logic(grid):
     while True:
         #print(point)
         #print(used_moves)
-        time.sleep(1)
         for move in knight_moves:
             new_x = point[0] + move[0]
             new_y = point[1] + move[1]
@@ -46,6 +45,12 @@ def move_logic(grid):
 
         point = random_move
         used_moves.append(random_move)
+
+        
+
+
+
+        
 
         
 
