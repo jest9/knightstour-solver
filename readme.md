@@ -1,2 +1,2 @@
-practice project, creating Knights tour.
+Knights Tour solver using standard techniques like warnsdorff.
 
