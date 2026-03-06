@@ -9,7 +9,7 @@ Knights Tour Solver ♘♘♘
 
 
 
-# much later
+# After:
 
 - experiment with other algorithms
 - improve speed (general)
