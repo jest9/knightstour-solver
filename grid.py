@@ -15,7 +15,8 @@ print("gridding up....")
 
 size = int(input("provide grid size: "))
 
-
+icon_path = "icons/chess.jpeg" # path to chess piece icon for drawing pattern on grid
+programIcon = pygame.image.load(icon_path) # load icon image
 # test for drawing value to visual grid.
 
 value2 = logic.grid_logic(size)
@@ -39,6 +40,8 @@ def draw_grid(surface, size):
         for j in range(size):
             rect = pygame.Rect(j * cell_width, i * cell_height, cell_width, cell_height)
             pygame.draw.rect(surface, (255, 255, 255), rect, 1) # draw grid lines
+            pygame.display.set_caption("Knight's Tour") # set window title
+            pygame.display.set_icon(programIcon) # set window icon
             grid_coordinates.append((j * cell_width, i * cell_height)) # store grid coordinates in list
     
     #print(grid_coordinates.__len__())
@@ -59,7 +62,9 @@ def draw_pattern(surface, size, value):
         column_value = y
         pygame.draw.rect(sample_surface, (random.randint(1,255), random.randint(1,255), random.randint(1,255)), pygame.Rect(grid_coordinates[column_value][0], grid_coordinates[row_value][0], cell_width, cell_height))
         pygame.display.flip()
-        time.sleep(0.5)
+        time.sleep(0.01)
+
+    time.sleep(1000)
         
 
     
