@@ -3,7 +3,6 @@ logic docstring
 """
 
 import time
-import random
 import itertools
 
 
@@ -18,6 +17,11 @@ def move_logic(grid):
     knight_moves = [(2, 1), (1, 2), (-1, 2), (-2, 1), (-2, -1), (-1, -2), (1, -2), (2, -1)]
     valid_moves = []
     used_moves = []
+
+    # warnsdorff implementation variables
+    warns_move = []
+    # warnsdorff implementation variables end
+    
     used_moves.append((0, 0))  # Starting point
     point = (0, 0)
 
@@ -40,11 +44,38 @@ def move_logic(grid):
             x = 0
             return used_moves  # No more valid moves
 
-        random_move = random.choice(valid_moves)
-        valid_moves.clear()
+        j = 0
+        # basic warnsdorff implementation
+        if len(valid_moves) >= 1:
+            # move with least onward moves
+            for i in valid_moves:
+                y = 0
+                for move in knight_moves:
+                    new_x = i[0] + move[0]
+                    new_y = i[1] + move[1]
+                    if (new_x, new_y) in grid and (new_x, new_y) not in used_moves:
+                        y = y + 1
 
-        point = random_move
-        used_moves.append(random_move)
+                print("total moves from", i, "is: ", y)
+                if j == 0:
+                    j = y
+                    warns_move = i
+                elif y < j:
+                    j = y
+                    warns_move = i
+
+        else:
+            warns_move = valid_moves[0]
+            
+        # heuristic end
+
+
+        print("warns_move: ", warns_move)
+
+        valid_moves.clear()
+        point = warns_move
+        used_moves.append(warns_move)
+
 
         
 
