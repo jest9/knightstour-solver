@@ -43,8 +43,6 @@ def draw_grid(surface, size):
             pygame.display.set_caption("Knight's Tour") # set window title
             pygame.display.set_icon(programIcon) # set window icon
             grid_coordinates.append((j * cell_width, i * cell_height)) # store grid coordinates in list
-    
-    #print(grid_coordinates.__len__())
 
 
 def draw_pattern(surface, size, value):
@@ -57,26 +55,40 @@ def draw_pattern(surface, size, value):
     row_value = 1
     column_value = 1
     
-    for x,y in value:
+    count = 1
+    checker = 1
+
+
+    for x, y in value:
         row_value = x
         column_value = y
-        pygame.draw.rect(sample_surface, (random.randint(1,255), random.randint(1,255), random.randint(1,255)), pygame.Rect(grid_coordinates[column_value][0], grid_coordinates[row_value][0], cell_width, cell_height))
+        # clear cell
+        if checker == 1:
+            pygame.draw.rect(surface, (0, 0, 0), pygame.Rect(grid_coordinates[column_value][0], grid_coordinates[row_value][0], cell_width, cell_height))
+        elif checker == 0:
+            pygame.draw.rect(surface, (255, 255, 255), pygame.Rect(grid_coordinates[column_value][0], grid_coordinates[row_value][0], cell_width, cell_height))
+        
+        # draw number
+        font = pygame.font.Font(None, 36)
+        if checker == 1:
+            text = font.render(str(count), True, (255, 255, 255))
+            checker = 0
+
+        elif checker == 0:
+            text = font.render(str(count), True, (0, 0, 0))
+            checker = 1
+        
+        text_rect = text.get_rect(center=(grid_coordinates[column_value][0] + cell_width//2, 
+                                          grid_coordinates[row_value][0] + cell_height//2))
+        surface.blit(text, text_rect)
+        
         pygame.display.flip()
-        time.sleep(0.01)
+        time.sleep(0.1)
+        pygame.event.pump()
+
+        count += 1
 
     time.sleep(1000)
-        
-
-    
-
-
-    #for i in range(size):
-    #    pygame.draw.rect(sample_surface, (0, colour_value, 0), pygame.Rect(grid_coordinates[column_value - 1][0], grid_coordinates[row_value - 1][0], cell_width, cell_height))
-    #    row_value = row_value + 2
-    #    column_value = column_value + 3
-    #    colour_value = colour_value - 1
-    #    pygame.display.flip()
-    #    time.sleep(1)
 
 
 draw_grid(sample_surface, size)
