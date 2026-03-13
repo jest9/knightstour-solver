@@ -3,6 +3,7 @@ logic docstring
 """
 
 import time
+import random
 import itertools
 
 
@@ -17,26 +18,23 @@ def move_logic(grid):
     knight_moves = [(2, 1), (1, 2), (-1, 2), (-2, 1), (-2, -1), (-1, -2), (1, -2), (2, -1)]
     valid_moves = []
     used_moves = []
-
-    # warnsdorff implementation variables
     warns_move = []
-    # warnsdorff implementation variables end
     
-    used_moves.append((0, 0))  # Starting point
-    point = (0, 0)
+    # random starting point
+    random_start = random.choice(grid)
 
-    #find valid moves
+    used_moves.append(random_start)  # Starting point
+    point = random_start
+
+    # find valid moves
     
     # check if move is valid
     x = 1
     while True:
-        #print(point)
-        #print(used_moves)
         for move in knight_moves:
             new_x = point[0] + move[0]
             new_y = point[1] + move[1]
             if (new_x, new_y) in grid and (new_x, new_y) not in used_moves:
-                #print("valid move: ", (new_x, new_y), "is not in used moves: ", used_moves)
                 valid_moves.append((new_x, new_y))
     
     # select move randomly from valid moves
