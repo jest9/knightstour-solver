@@ -83,10 +83,10 @@ def draw_pattern(surface, size, value):
         surface.blit(text, text_rect)
         
         pygame.display.flip()
-        time.sleep(0.1)
         pygame.event.pump()
 
         count += 1
+        time.sleep(0.1)
 
     time.sleep(1000)
 
