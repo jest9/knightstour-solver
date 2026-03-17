@@ -78,7 +78,7 @@ def move_logic(grid):
         else:
             warns_move = valid_moves[0]
             
-        # heuristic end
+        # heuristic ending
 
         if len(tie_list) == 0:
             print("end of tour")
