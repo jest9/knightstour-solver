@@ -2,6 +2,7 @@
 logic docstring
 """
 
+from tie_break import roth
 import time
 import random
 import itertools
@@ -43,9 +44,15 @@ def move_logic(grid):
             return used_moves  # No more valid moves
 
         j = 0
+        
         # basic warnsdorff implementation
+        
+        tie_list = []
+
         if len(valid_moves) >= 1:
+            
             # move with least onward moves
+
             for i in valid_moves:
                 y = 0
                 for move in knight_moves:
@@ -59,14 +66,28 @@ def move_logic(grid):
                     j = y
                     warns_move = i
                 elif y < j:
+                    tie_list.clear()
+                    print(tie_list)
+                    tie_list.append(i)
+                    print(tie_list)
                     j = y
                     warns_move = i
-
+                elif y == j:
+                    tie_list.append(i)
+                    print(tie_list)
         else:
             warns_move = valid_moves[0]
             
         # heuristic end
 
+        if len(tie_list) == 0:
+            print("end of tour")
+        elif len(tie_list) == 1:
+            warns_move = tie_list[0]
+        elif len(tie_list) > 1:
+            warns_move = roth(tie_list, grid)
+
+        tie_list.clear()
 
         print("warns_move: ", warns_move)
 
