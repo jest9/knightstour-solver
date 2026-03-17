@@ -14,7 +14,7 @@ def roth(move_list, grid):
         midIndex = int(middleIndex)
         print(grid[midIndex])
 
-        # finish tomorrow
+        # finish tomorrow pls
 
 
     return random.choice(move_list)
