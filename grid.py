@@ -86,8 +86,9 @@ def draw_pattern(surface, size, value):
         pygame.event.pump()
 
         count += 1
-        time.sleep(0.1)
 
+
+    print("squares filled: ", len(value))
     time.sleep(1000)
 
 
