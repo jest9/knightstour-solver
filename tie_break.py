@@ -53,6 +53,8 @@ def roth(move_list, grid):
                 best_move = random.choice(move_list)
             
 
-
-    #print("best move is: ", best_move, "with distance: ", y)
     return best_move
+
+
+
+    # clean up code and add comments
