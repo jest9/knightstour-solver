@@ -4,7 +4,6 @@ logic docstring
 
 from draw import draw_pattern
 from tie_break import roth
-import time
 import itertools
 
 
@@ -18,20 +17,19 @@ def move_logic(surface, var1, grid, grid_coordinates):
 
     knight_moves = [(2, 1), (1, 2), (-1, 2), (-2, 1), (-2, -1), (-1, -2), (1, -2), (2, -1)]
     valid_moves = []
-    used_moves = [] # used moves stored in a set for O(1) lookup
+    used_moves = set() # used moves stored in a set for O(1) lookup
     warns_move = []
     
-    # random starting point
+    # starting point
     start = grid[0]
 
-    used_moves.append(start)  # Starting point
+    used_moves.add(start)
     point = start
 
     draw_pattern(surface, var1, start, grid_coordinates)
 
     # find valid moves
-    
-    # check if move is valid
+
     x = 1
     while True:
         for move in knight_moves:
@@ -39,11 +37,11 @@ def move_logic(surface, var1, grid, grid_coordinates):
             new_y = point[1] + move[1]
             if (new_x, new_y) in grid and (new_x, new_y) not in used_moves:
                 valid_moves.append((new_x, new_y))
-    
-    # select move randomly from valid moves
-        if not valid_moves:
+
+        if not valid_moves: # no more valid moves
             x = 0
-            return used_moves  # No more valid moves
+            print("moves made =", len(used_moves), "out of", len(grid))
+            return
 
         j = 0
         
@@ -63,20 +61,16 @@ def move_logic(surface, var1, grid, grid_coordinates):
                     if (new_x, new_y) in grid and (new_x, new_y) not in used_moves:
                         y = y + 1
 
-                #print("total moves from", i, "is: ", y)
                 if j == 0:
                     j = y
                     warns_move = i
                 elif y < j:
                     tie_list.clear()
-                    #print(tie_list)
                     tie_list.append(i)
-                    #print(tie_list)
                     j = y
                     warns_move = i
                 elif y == j:
                     tie_list.append(i)
-                    #print(tie_list)
         else:
             warns_move = valid_moves[0]
             
@@ -87,20 +81,13 @@ def move_logic(surface, var1, grid, grid_coordinates):
 
         tie_list.clear()
 
-        #print("warns_move: ", warns_move)
-
         valid_moves.clear()
         point = warns_move
 
         print(warns_move)
-        used_moves.append(warns_move)
+        used_moves.add(warns_move)
 
         draw_pattern(surface, var1, warns_move, grid_coordinates)
-
-
-
-        #used_moves.add(warns_move)
-        #print(f"\rPercent done: {(len(used_moves)/len(grid))*100:.1f}%", end='', flush=True)
 
 
         
