@@ -19,7 +19,7 @@ icon_path = "icons/chess.jpeg" # path to chess piece icon for drawing pattern on
 programIcon = pygame.image.load(icon_path) # load icon image
 # test for drawing value to visual grid.
 
-value2 = logic.grid_logic(size)
+#value2 = logic.grid_logic(size)
 
 # grid size # 
 
@@ -44,54 +44,56 @@ def draw_grid(surface, size):
             pygame.display.set_icon(programIcon) # set window icon
             grid_coordinates.append((j * cell_width, i * cell_height)) # store grid coordinates in list
 
+    logic.grid_logic(size, surface, grid_coordinates) # call grid logic to get moves and draw pattern on grid
 
-def draw_pattern(surface, size, value):
-    width, height = surface.get_size()
-    cell_width = width // size  # calculates width and height of each cell
-    cell_height = height // size
 
-    print(value)
+#def draw_pattern(surface, size, value):
+#    width, height = surface.get_size()
+#    cell_width = width // size  # calculates width and height of each cell
+#    cell_height = height // size
 
-    row_value = 1
-    column_value = 1
+    #print(value)
+
+#    row_value = 1
+#    column_value = 1
     
-    count = 1
-    checker = 1
+#    count = 1
+#    checker = 1
 
 
-    for x, y in value:
-        row_value = x
-        column_value = y
+#   for x, y in value:
+#        row_value = x
+#        column_value = y
         # clear cell
-        if checker == 1:
-            pygame.draw.rect(surface, (0, 0, 0), pygame.Rect(grid_coordinates[column_value][0], grid_coordinates[row_value][0], cell_width, cell_height))
-        elif checker == 0:
-            pygame.draw.rect(surface, (255, 255, 255), pygame.Rect(grid_coordinates[column_value][0], grid_coordinates[row_value][0], cell_width, cell_height))
+#        if checker == 1:
+#            pygame.draw.rect(surface, (0, 0, 0), pygame.Rect(grid_coordinates[column_value][0], grid_coordinates[row_value][0], cell_width, cell_height))
+#        elif checker == 0:
+#            pygame.draw.rect(surface, (255, 255, 255), pygame.Rect(grid_coordinates[column_value][0], grid_coordinates[row_value][0], cell_width, cell_height))
+#        
+#        # draw number
+#        font = pygame.font.Font(None, 36)
+#        if checker == 1:
+#            text = font.render(str(count), True, (255, 255, 255))
+#            checker = 0
+
+#        elif checker == 0:
+#            text = font.render(str(count), True, (0, 0, 0))
+#            checker = 1
         
-        # draw number
-        font = pygame.font.Font(None, 36)
-        if checker == 1:
-            text = font.render(str(count), True, (255, 255, 255))
-            checker = 0
-
-        elif checker == 0:
-            text = font.render(str(count), True, (0, 0, 0))
-            checker = 1
-        
-        text_rect = text.get_rect(center=(grid_coordinates[column_value][0] + cell_width//2, 
-                                          grid_coordinates[row_value][0] + cell_height//2))
-        surface.blit(text, text_rect)
-        
-        pygame.display.flip()
-        pygame.event.pump()
-
-        count += 1
+#        text_rect = text.get_rect(center=(grid_coordinates[column_value][0] + cell_width//2, 
+#                                          grid_coordinates[row_value][0] + cell_height//2))
+#        surface.blit(text, text_rect)
+#        
+#        pygame.display.flip()
+#        pygame.event.pump()
+#
+#        count += 1
 
 
-    print("squares filled: ", len(value))
-    time.sleep(1000)
+#    print("squares filled: ", len(value))
+#    time.sleep(1000)
 
 
 draw_grid(sample_surface, size)
-draw_pattern(sample_surface, size, value2)
+#draw_pattern(sample_surface, size, value2)
     
