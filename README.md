@@ -2,6 +2,8 @@ Knights Tour Solver ♘♘♘
 
 # TODO:
 
+
+- add parberry
 - add line draw to better visualise moves (alternative to random colours) (Next)
 - add solve for full tour
 - refactor
@@ -9,6 +11,5 @@ Knights Tour Solver ♘♘♘
 
 # After:
 
-- experiment with other algorithms
 - improve speed (general)
 
