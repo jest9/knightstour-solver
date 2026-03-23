@@ -8,6 +8,9 @@ import random
 def roth(move_list, grid):
 
     # find central point
+
+    c = 0
+
     if len(grid) % 2 != 0:
         middleIndex = (len(grid) - 1)/2
         midIndex = int(middleIndex)
@@ -37,6 +40,7 @@ def roth(move_list, grid):
         #print("central points: ", central_points)
 
         y = 0
+        c = 0
         for i in move_list:
             # find distance from central points
             distance1 = ((i[0] - grid[midIndex1][0]) ** 2 + (i[1] - grid[midIndex1][1]) ** 2) ** 0.5 # get euclidean distance from central point 1
@@ -51,9 +55,9 @@ def roth(move_list, grid):
                 best_move = i
             elif distance == y:
                 best_move = random.choice(move_list)
+                c = 1
             
-
-    return best_move
+    return best_move, c
 
 
 
