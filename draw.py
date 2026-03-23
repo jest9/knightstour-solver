@@ -1,7 +1,8 @@
+
 import pygame
-import time
 
 def draw_pattern(surface, size, value, grid_coordinates):
+
     width, height = surface.get_size()
     cell_width = width // size  # calculates width and height of each cell
     cell_height = height // size
