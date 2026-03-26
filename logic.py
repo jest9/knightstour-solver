@@ -2,18 +2,17 @@
 logic docstring
 """
 
-from draw import draw_pattern
 from tie_break import roth
 import itertools
-from config import headless_option
+from config import headless_option, size
 if headless_option == "0":
-    from config import size, sample_surface
+    from config import sample_surface
 
 
 
 def grid_logic(size, grid_coordinates=False):
 
-    grid = list(itertools.product(range(size), range(size)))
+    grid = set(itertools.product(range(size), range(size)))
 
     if grid_coordinates != False:
         usedmoves = move_logic(grid, grid_coordinates)
@@ -32,7 +31,7 @@ def move_logic(grid, grid_coordinates=False, headless=False):
     random_tied_moves_increment = 0
     
     # starting point
-    start = grid[0]
+    start = (0,0)
 
     used_moves.add(start)
     point = start
@@ -40,6 +39,7 @@ def move_logic(grid, grid_coordinates=False, headless=False):
     if (headless == True):
         pass
     else:
+        from draw import draw_pattern
         draw_pattern(sample_surface, size, start, grid_coordinates)
 
     # find valid moves
@@ -114,7 +114,7 @@ def move_logic(grid, grid_coordinates=False, headless=False):
         # heuristic ending
 
         if len(tie_list) > 1:
-            warns_move, random_value = roth(tie_list, grid)
+            warns_move, random_value = roth(tie_list, size)
             tied_moves += 1
             if random_value == 1:
                 random_tied_moves_increment += 1
@@ -132,6 +132,7 @@ def move_logic(grid, grid_coordinates=False, headless=False):
         if (headless == True):
             pass
         else:
+            from draw import draw_pattern
             draw_pattern(sample_surface, size, warns_move, grid_coordinates)
 
 
