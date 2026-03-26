@@ -19,7 +19,6 @@ _MM_  YM.__MM_  _MM__MM_ YMMMMb. _MM_  _MM_  YMMM9 MYMMMM9    YMMM9  YMMMMM9    
                         6M    Yb                                                                     MM           d'     
                         YM.   d9                                                                     MM       (8),P      
                          YMMMM9                                                                     _MM_       YMM   
-\033[0m
 
 """)
 
