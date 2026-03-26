@@ -5,7 +5,7 @@ Docstring for grid draw with pygame
 import pygame
 import logic
 
-# grid handling
+# grid handling (visual mode only)
 
 grid_coordinates = [] # for storing grid coordinates
 
@@ -13,8 +13,6 @@ def draw_grid(surface, size):
     width, height = surface.get_size()
     cell_width = width // size  # calculates width and height of each cell
     cell_height = height // size
-
-    # headless mode (cli)
 
     icon_path = "icons/chess.jpeg"
     programIcon = pygame.image.load(icon_path)
