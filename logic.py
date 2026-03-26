@@ -44,6 +44,8 @@ def move_logic(grid, grid_coordinates=False, headless=False):
 
     # find valid moves
 
+    print("solving...")
+
     x = 1
     while True:
         for move in knight_moves:
@@ -53,9 +55,8 @@ def move_logic(grid, grid_coordinates=False, headless=False):
                 valid_moves.append((new_x, new_y))
 
         if not valid_moves: # no more valid moves
-            x = 0
 
-            print("\n ending tour...")
+            print("\nEnding tour...")
 
             # stat formatting
             
@@ -78,7 +79,7 @@ def move_logic(grid, grid_coordinates=False, headless=False):
 
             # stats end
 
-            return
+            break
 
         j = 0
         
@@ -127,7 +128,6 @@ def move_logic(grid, grid_coordinates=False, headless=False):
         #print(warns_move)
         used_moves.add(warns_move)
 
-        print(f"\r{len(used_moves)/len(grid) * 100:.1f} percent done", end="", flush=True)
 
         if (headless == True):
             pass
