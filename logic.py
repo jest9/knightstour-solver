@@ -77,6 +77,8 @@ def move_logic(grid, grid_coordinates=False, headless=False):
             print(f"Randomly tie broken: {stat_random_tied_moves}")
             print(f"Percentage of tied moves: {stat_percentage_tied_moves:.2f}%")
 
+            print("\033[0m")
+
             # stats end
 
             break
@@ -115,10 +117,12 @@ def move_logic(grid, grid_coordinates=False, headless=False):
         # heuristic ending
 
         if len(tie_list) > 1:
-            warns_move, random_value = roth(tie_list, size)
+            warns_move, random_tied_moves_res = roth(tie_list, size)
             tied_moves += 1
-            if random_value == 1:
+            if random_tied_moves_res == 1:
                 random_tied_moves_increment += 1
+            else:
+                pass
 
         tie_list.clear()
 
