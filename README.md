@@ -1,6 +1,6 @@
 <div align="center">
 
-  # Warnsdorff/Roth example (101x101)
+  # Pure Heuristic Solver
   ![warnsroth](https://github.com/jest9/knightstour-solver/blob/main/gifs/warnsroth.gif)
 
 </div>
