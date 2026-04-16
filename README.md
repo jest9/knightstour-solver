@@ -5,4 +5,8 @@
 
 </div>
 
-Make sure to install pygame version in requirements.txt.
+<div align="center">
+  
+  Make sure to install pygame version in requirements.txt.
+  
+</div>
