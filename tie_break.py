@@ -18,7 +18,6 @@ def roth(move_list, size):
 
     y = 0
     tie_list = []
-    c == 0
     
     for i in move_list:
         # find distance from central point
