@@ -1,7 +1,7 @@
 <div align="center">
 
   # Pure Heuristic Solver
-  ![warnsroth](https://github.com/jest9/knightstour-solver/blob/main/gifs/warnsroth.gif)
+  ![warnsroth200](https://github.com/jest9/knightstour-solver/blob/main/gifs/warnsroth200.gif)
 
 </div>
 
