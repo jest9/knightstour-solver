@@ -14,5 +14,6 @@ def stats(stat_moves_total, stat_moves_made, stat_tied_moves, stat_random_tied_m
     print(f"Tied moves: {stat_tied_moves}")
     print(f"Randomly tie broken: {stat_random_tied_moves}")
     print(f"Percentage of tied moves: {stat_percentage_tied_moves:.2f}%")
-
     print("\033[0m")
+
+    # stats end

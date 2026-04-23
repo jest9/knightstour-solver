@@ -55,6 +55,8 @@ def move_logic(grid, grid_coordinates=False, headless=False):
             if (new_x, new_y) in grid and (new_x, new_y) not in used_moves:
                 valid_moves.append((new_x, new_y))
 
+
+
         if not valid_moves: # no more valid moves
 
             print("\nEnding tour...")
@@ -62,6 +64,8 @@ def move_logic(grid, grid_coordinates=False, headless=False):
             stats(len(grid), len(used_moves), tied_moves, random_tied_moves_increment)
 
             break
+
+
 
         j = 0
         
@@ -72,6 +76,9 @@ def move_logic(grid, grid_coordinates=False, headless=False):
         if len(valid_moves) >= 1:
             
             # move with least onward moves
+
+
+            # probably can cut this down
 
             for i in valid_moves:
                 y = 0
