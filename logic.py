@@ -89,6 +89,7 @@ def move_logic(grid, grid_coordinates=False, headless=False):
                         y = y + 1
 
                 if j == 0:
+                    tie_list.append(i) # silly bugs
                     j = y
                     warns_move = i
                 elif y < j:
