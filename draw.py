@@ -10,7 +10,7 @@ def draw_pattern(surface, size, value, grid_coordinates):
     row_value = 1
     column_value = 1
 
-    (x, y) = value
+    x, y = divmod(value, size)
 
     row_value = x
     column_value = y

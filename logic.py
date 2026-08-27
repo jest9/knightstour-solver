@@ -13,7 +13,7 @@ if headless_option == "0":
 
 def grid_logic(size, grid_coordinates=False):
 
-    grid = set(itertools.product(range(size), range(size)))
+    grid = set(range(size * size)) # create a set of all possible grid coordinates
 
     if grid_coordinates != False:
         usedmoves = move_logic(grid, grid_coordinates)
@@ -32,7 +32,7 @@ def move_logic(grid, grid_coordinates=False, headless=False):
     random_tied_moves_increment = 0
     
     # starting point
-    start = (0,0)
+    start = 0
 
     used_moves.add(start)
     point = start
@@ -49,11 +49,12 @@ def move_logic(grid, grid_coordinates=False, headless=False):
 
     x = 1
     while True:
+        px, py = divmod(point, size)
         for move in knight_moves:
-            new_x = point[0] + move[0]
-            new_y = point[1] + move[1]
-            if (new_x, new_y) in grid and (new_x, new_y) not in used_moves:
-                valid_moves.append((new_x, new_y))
+            new_x = px + move[0]
+            new_y = py + move[1]
+            if 0 <= new_x < size and 0 <= new_y < size and (new_x * size + new_y) not in used_moves:
+                valid_moves.append(new_x * size + new_y)
 
 
 
@@ -82,10 +83,11 @@ def move_logic(grid, grid_coordinates=False, headless=False):
 
             for i in valid_moves:
                 y = 0
+                ix, iy = divmod(i, size)
                 for move in knight_moves:
-                    new_x = i[0] + move[0]
-                    new_y = i[1] + move[1]
-                    if (new_x, new_y) in grid and (new_x, new_y) not in used_moves:
+                    new_x = ix + move[0]
+                    new_y = iy + move[1]
+                    if 0 <= new_x < size and 0 <= new_y < size and (new_x * size + new_y) not in used_moves:
                         y = y + 1
 
                 if j == 0:
