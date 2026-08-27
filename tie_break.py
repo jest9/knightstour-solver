@@ -20,8 +20,9 @@ def roth(move_list, size):
     tie_list = []
     
     for i in move_list:
+        ix, iy = divmod(i, size)
         # find distance from central point
-        distance = ((i[0] - center[0]) ** 2 + (i[1] - center[1]) ** 2) ** 0.5 # get euclidean distance from central point
+        distance = ((ix - center[0]) ** 2 + (iy - center[1]) ** 2) ** 0.5 # get euclidean distance from central point
         
         if y == 0:
             y = distance
